@@ -15,6 +15,8 @@ def create_app(test_config=None):
     else:
         # load the test config if passed in
         app.config.from_mapping(test_config)
+    # assets = Environment()
+    # assets.init_app(app)
 
     # ensure the instance folder exists
     try:
@@ -22,8 +24,9 @@ def create_app(test_config=None):
     except OSError:
         pass
 
-    # blueprint
-    from . import hello
-    app.register_blueprint(hello.bp)
+    with app.app_context():
+        # blueprint
+        from . import hello
+        app.register_blueprint(hello.bp)
 
-    return app
+        return app
