@@ -1,3 +1,5 @@
 #!/bin/bash
 
-python ./src/app.py
+export FLASK_APP=slackbot
+export FLASK_ENV=development
+flask run
