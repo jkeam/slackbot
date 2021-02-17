@@ -15,3 +15,10 @@ def bonjour():
         "greeting": "hi"
     }
     return jsonify(data)
+
+@bp.route('/hola', methods=['GET'])
+def hola():
+    data = {
+        "greeting": "hola"
+    }
+    return jsonify(data)
